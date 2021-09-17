@@ -1,0 +1,37 @@
+<div class="container">
+  <nav id="breadcrumbs" class="col-12 mt-1 mt-sm-3 mt-lg-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <%= link_to('/') do %>
+          <span>Home</span>
+        <% end %>
+        <span itemprop="item" itemscope="itemscope" itemtype="https://schema.org/Thing" itemid="/"></span>
+      </li>
+      <li class="breadcrumb-item">
+        <%= link_to(blogs_path) do %>
+          <span>Blog</span>
+        <% end %>
+        <span itemprop="item" itemscope="itemscope" itemtype="https://schema.org/Thing" itemid="/"></span>
+      </li>
+      <li class="breadcrumb-item">
+        <%= link_to(blog_path(id: @post.slug)) do %>
+          <span><%= @post.title %></span>
+        <% end %>
+      </li>
+    </ol>
+</div>
+
+<div class="container pt-4 product-details">
+  <div class="row">
+    <div class="col-12 col-md-5">
+      <div id="product-description">
+        <h1 class="mt-3 mt-md-0 text-center text-md-left product-details-title">
+          <%= @post.title %>
+        </h1>
+      </div>
+    </div>
+    <div class="pb-4 pt-md-5 row">
+      <%= @post.body.html_safe %>
+    </div>
+  </div>
+</div>
